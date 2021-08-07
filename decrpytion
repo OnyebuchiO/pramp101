@@ -1,0 +1,84 @@
+def decrypt(word):
+   # your code goes here
+  #First find how many letters are in word
+  #A siple for loop for all the letters inside it
+  #For each letter find the ascii value
+  #find mathematical equation for this, should be a one liner
+  #100 110 111 116 113
+  #Formula to encrypt
+  #enc[n] = dec[n] + second_step[n-1] + 26m
+  #dec[n] = enc[n] - second_step[n-1] - 26m
+  
+  ######KEY latin lowercase only
+  #First turn the first letter back into a number we know
+  #Setp 1: Subract 1
+  #Step 2: Find out if it within the range 97 - 122
+  #Step 3: If so you, have the number if not keep subtracting till you get there
+  
+  
+  #Decrypted message:	c	r	i	m	e
+#Step 1:	99	114	105	109	101
+#Step 2:	100	214	319	428	529
+#Step 3:	100	110	111	116	113
+#Encrypted message:	d	n	o	t	q
+  
+
+
+  #encrypt_N(word):
+   # prev_number = 1
+   # new_word = ""
+    
+    #for n in range(0, word - 1):
+    #  new_number = charrToAcii(word[n])
+    #  new_number += prev_number
+      
+      #Check if the number is within 97 - 122 range
+     # while new_number not in range(97,122):
+      #  new_number -= 26
+        
+      #Turn the new number to acii character
+     # new_word[n] = Acii_to_char(new_number)
+      
+    prev_number = 1
+    new_word = ""
+    new_number = 0
+    
+    leng = len(word)
+    for n in range(0,leng): #O(n)
+      new_number = ord(word[n]) #O(1)
+     # print(new_number)
+      new_number -= prev_number #O(1)
+     # print(new_number)
+
+      
+      #Check if the number is within 97 - 122 range
+      # while new_number not in range(97,122):
+      while (new_number < ord('a')): # O(1) because of bounded input
+        new_number += 26
+        
+      #Turn the new number to acii character
+      new_word = new_word + chr(new_number)
+      prev_number += new_number
+      
+    return new_word
+      
+      
+      
+ # func_first_number(n):
+  #  n -1
+  #  if n is in [97,122]:
+   #   return n
+   # else
+   #   n + 26
+  
+  #Second letter: 
+   # - Get ascii value
+   # - 110 add previous 100 = 210
+
+##
+#
+#
+#
+#
+##
+#
